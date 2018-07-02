@@ -24,6 +24,11 @@
 		828BD35820EA165D00D5915F /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 828BD34E20EA165C00D5915F /* cancel.png */; };
 		828BD35B20EA16F400D5915F /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828BD35920EA16F300D5915F /* CAPSPageMenu.swift */; };
 		828BD35C20EA16F400D5915F /* DotsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828BD35A20EA16F300D5915F /* DotsLoader.swift */; };
+		828BD35E20EA182900D5915F /* News1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828BD35D20EA182900D5915F /* News1ViewController.swift */; };
+		828BD36020EA185900D5915F /* News2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828BD35F20EA185900D5915F /* News2ViewController.swift */; };
+		828BD36220EA186A00D5915F /* News3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828BD36120EA186A00D5915F /* News3ViewController.swift */; };
+		828BD36420EA187C00D5915F /* News4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828BD36320EA187C00D5915F /* News4ViewController.swift */; };
+		828BD36620EA189E00D5915F /* News5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828BD36520EA189E00D5915F /* News5ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +51,11 @@
 		828BD34E20EA165C00D5915F /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
 		828BD35920EA16F300D5915F /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
 		828BD35A20EA16F300D5915F /* DotsLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotsLoader.swift; sourceTree = "<group>"; };
+		828BD35D20EA182900D5915F /* News1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News1ViewController.swift; sourceTree = "<group>"; };
+		828BD35F20EA185900D5915F /* News2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News2ViewController.swift; sourceTree = "<group>"; };
+		828BD36120EA186A00D5915F /* News3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News3ViewController.swift; sourceTree = "<group>"; };
+		828BD36320EA187C00D5915F /* News4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News4ViewController.swift; sourceTree = "<group>"; };
+		828BD36520EA189E00D5915F /* News5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News5ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +106,11 @@
 				828BD33A20EA15A600D5915F /* Assets.xcassets */,
 				828BD33C20EA15A600D5915F /* LaunchScreen.storyboard */,
 				828BD33F20EA15A600D5915F /* Info.plist */,
+				828BD35D20EA182900D5915F /* News1ViewController.swift */,
+				828BD35F20EA185900D5915F /* News2ViewController.swift */,
+				828BD36120EA186A00D5915F /* News3ViewController.swift */,
+				828BD36320EA187C00D5915F /* News4ViewController.swift */,
+				828BD36520EA189E00D5915F /* News5ViewController.swift */,
 			);
 			path = SmartyNews1;
 			sourceTree = "<group>";
@@ -181,9 +196,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				828BD35E20EA182900D5915F /* News1ViewController.swift in Sources */,
 				828BD35C20EA16F400D5915F /* DotsLoader.swift in Sources */,
+				828BD36620EA189E00D5915F /* News5ViewController.swift in Sources */,
 				828BD33620EA15A400D5915F /* ViewController.swift in Sources */,
 				828BD33420EA15A400D5915F /* AppDelegate.swift in Sources */,
+				828BD36420EA187C00D5915F /* News4ViewController.swift in Sources */,
+				828BD36020EA185900D5915F /* News2ViewController.swift in Sources */,
+				828BD36220EA186A00D5915F /* News3ViewController.swift in Sources */,
 				828BD35B20EA16F400D5915F /* CAPSPageMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
