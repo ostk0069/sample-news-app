@@ -8,13 +8,15 @@
 
 import UIKit
 
-class News1ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class News1ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIWebViewDelegate {
   
   var tableView: UITableView = UITableView()
   
   var refreshControl: UIRefreshControl!
   
   var webView: UIWebView = UIWebView()
+  
+  var goButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +42,29 @@ class News1ViewController: UIViewController, UITableViewDelegate, UITableViewDat
       self.view.addSubview(tableView)
       
       // making web view
+      webView.frame = tableView.frame
+      webView.delegate = self
+      webView.scalesPageToFit = true
+      webView.contentMode = .scaleAspectFit
+      self.view.addSubview(webView)
+      webView.isHidden = true
       
+      //button to acess the next page
+      goButton = UIButton()
+      goButton.frame = CGRect(x: self.view.frame.size.width - 50.0, y: self.view.frame.size.height - 128.0, width: self.view.frame.size.width, height: self.view.frame.size.height - 54.0 )
+      goButton.setImage(UIImage(named: "go.png"), for: .normal)
+      goButton.addTarget(self, action: #selector(nextPage), for: .touchUpInside)
+      self.view.addSubview(goButton)
     }
   
+  //button to acess the next page
+  
   @objc func refresh() {
+    
+  }
+  
+  @objc func nextPage() {
+    
     
   }
 
