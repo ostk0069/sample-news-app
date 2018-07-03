@@ -8,13 +8,44 @@
 
 import UIKit
 
-class News1ViewController: UIViewController {
+class News1ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+  
+  var tableView: UITableView = UITableView()
+  
+  var refreshControl: UIRefreshControl!
+  
+  var webView: UIWebView = UIWebView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+      
+      // code for background image
+      let imageView = UIImageView()
+      imageView.frame = self.view.bounds
+      imageView.image = UIImage(named: "1.jpg")
+      self.view.addSubview(imageView)
+    
+      // refresh function
+      refreshControl = UIRefreshControl()
+      refreshControl.tintColor = UIColor.blue
+      refreshControl.attributedTitle = NSAttributedString(string: "loading...")
+      refreshControl.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
+    
+      //making table view
+      tableView.delegate = self
+      tableView.dataSource = self
+      tableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height - 54.0 )
+      tableView.backgroundColor = UIColor.clear
+      tableView.addSubview(refreshControl)
+      self.view.addSubview(tableView)
+      
+      // making web view
+      
     }
+  
+  @objc func refresh() {
+    
+  }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
