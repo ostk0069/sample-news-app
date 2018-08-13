@@ -26,8 +26,8 @@ class News1ViewController: UIViewController, UITableViewDelegate, UITableViewDat
   var totalBox = NSMutableArray()
   var elements = NSMutableDictionary()
   var element = String()
-  var titleString = NSMutableArray()
-  var linkString = NSMutableArray()
+  var titleString = NSMutableString()
+  var linkString = NSMutableString()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,9 +157,101 @@ class News1ViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    <#code#>
+    let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
+    cell.backgroundColor = UIColor.clear
+    cell.textLabel?.text = (totalBox[indexPath.row] as AnyObject).value(forKey: "title") as? String
+    cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 15.0)
+    cell.textLabel?.textColor = UIColor.white
+    
+    cell.detailTextLabel?.text = (totalBox[indexPath.row] as AnyObject).value(forKey: "link") as? String
+    cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 9.0)
+    cell.textLabel?.textColor = UIColor.white
+    
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    // webview
+    let linkURL = (totalBox[indexPath.row] as AnyObject).value(forKey: "link") as! String
+    let urlStr = linkURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+    let url: URL = URL(string: urlStr!)!
+    let urlRequest = NSURLRequest(url: url)
+    webView.loadRequest(urlRequest as URLRequest)
+    
+  }
+  
+  func webViewDidStartLoad(_ webView: UIWebView) {
+    
+    dotsView.isHidden = false
+    dotsView.startAnimating()
+  }
+  
+  func webViewDidFinishLoad(_ webView: UIWebView) {
+    
+    dotsView.isHidden = true
+    dotsView.stopAnimating()
+    dotsView.isHidden = false
+    goButton.isHidden = false
+    backButton.isHidden = false
+    cancelButton.isHidden = false
   }
 
+  // when tag is founded. tag stnads for item tag.
+  
+  func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+    
+    if element  == "item" {
+      
+      elements = NSMutableDictionary()
+      elements = [:]
+      titleString = NSMutableString()
+      titleString = ""
+      linkString = NSMutableString()
+      linkString = ""
+    }
+  }
+  
+  // when tag is founded and found data inside (tag which is closed with start and end tag)
+  
+  func parser(_ parser: XMLParser, foundCharacters string: String) {
+    
+    if element == "item" {
+      
+      titleString.append(string)
+      
+    } else if element == "link" {
+      
+      linkString.append(string)
+      
+    }
+  }
+  
+  // when tag finishes
+  
+  func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    
+    // case inside the element = "item"
+    if elementName == "item" {
+      
+      // case if titleString != blank
+      if titleString != "" {
+        
+        // set titleString with element has key value
+        elements.setObject(titleString, forKey: "title" as NSCopying)
+      }
+      
+      if linkString != "" {
+        
+        // set linkString with element has key value
+        elements.setObject(linkString, forKey: "title" as NSCopying)
+      }
+      
+      // sets the elements in the totalbox
+      totalBox.add(elements)
+    }
+    
+  }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
