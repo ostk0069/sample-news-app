@@ -124,18 +124,16 @@ class News1ViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   @objc func nextPage() {
-    
-    
+    webView.goForward()
   }
-  
   @objc func backPage() {
-    
-    
+    webView.goBack()
   }
-  
   @objc func cancel() {
-    
-    
+    webView.isHidden = true
+    goButton.isHidden = true
+    backButton.isHidden = true
+    cancelButton.isHidden = true
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -200,6 +198,8 @@ class News1ViewController: UIViewController, UITableViewDelegate, UITableViewDat
   // when tag is founded. tag stnads for item tag.
   
   func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+    
+    element = elementName
     
     if element  == "item" {
       
